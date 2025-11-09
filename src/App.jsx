@@ -4,28 +4,23 @@ import {
   Outlet,
   RouterProvider,
 } from 'react-router-dom';
+import { AppLayout } from './components/AppLayout';
 
 const router = createBrowserRouter([
   {
-    element: <Outlet />,
+    element: (
+      <AppLayout>
+        <Outlet />
+      </AppLayout>
+    ),  
     children: [
       {
         path: '/',
-        element: (
-          <div>
-            <div>タスク一覧</div>
-            <Link to="trash">ゴミ箱へ</Link>
-          </div>
-        ),
+        element: <div>タスク一覧</div>,
       },
       {
         path: '/trash',
-        element: (
-          <div>
-            <div>ゴミ箱</div>
-            <Link to="/">タスク一覧へ</Link>
-          </div>
-        ),
+        element: <div>ゴミ箱</div>,
       },
     ],
   },
