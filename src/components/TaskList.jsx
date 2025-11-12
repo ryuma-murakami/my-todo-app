@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CreateTaskForm } from './CreateTaskForm';
 import { TaskItem } from './TaskItem';
 
 export function TaskList() {
-  const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useState(() => {
+    const taskListStorage = localStorage.getItem('taskList');
+    return JSON.parse(taskListStorage ?? '[]');
+  });
 
   const createTask = (title) => {
     setTaskList((prevTaskList) => {
@@ -15,6 +18,10 @@ export function TaskList() {
       return [...prevTaskList, newTask];
     });
   };
+
+  useEffect(() => {
+    localStorage.setItem('taskList', JSON.stringify(taskList));
+  }, [taskList]);
 
   const activeTaskList = taskList.filter(({ status }) => status !== 'trashed');
 
