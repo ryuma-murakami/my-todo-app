@@ -24,9 +24,26 @@ export function useTasks() {
     });
   };
 
+  const trashedTaskList = taskList.filter(({ status }) => status === 'trashed');
+
+  const deleteTask = (id) => {
+    setTaskList((prevTaskList) => {
+      return prevTaskList.filter((task) => task.id !== id);
+    });
+  };
+
+  const deleteAllTrashedTasks = () => {
+    setTaskList((prevTaskList) => {
+      return prevTaskList.filter((task) => task.status !== 'trashed');
+    });
+  };
+
   return {
     activeTaskList,
     createTask,
     updateTask,
+    trashedTaskList,
+    deleteTask,
+    deleteAllTrashedTasks,
   };
 }

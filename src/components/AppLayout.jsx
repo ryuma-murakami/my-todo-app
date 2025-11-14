@@ -33,7 +33,7 @@ export function AppLayout({ children }) {
         <nav>
           <ul className="flex flex-col gap-2">
             {sideMenu.map(({ path, label, icon }) => (
-              <li>
+              <li key={path}>
                 <Link
                   to={path}
                   className={linkVariants({ active: pathname === path })}
