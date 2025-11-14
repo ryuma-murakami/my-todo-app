@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { AppLayout } from './components/AppLayout';
 import { TaskList } from './components/TaskList';
+import { TrashedTaskList } from './components/TrashedTaskList';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/trash',
-        element: <div>ゴミ箱</div>,
+        element: <TrashedTaskList />,
       },
     ],
   },
