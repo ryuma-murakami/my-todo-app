@@ -6,8 +6,8 @@ export function useLocalStorageState(key, initialValue) {
     return storedValue ? JSON.parse(storedValue) : initialValue;
   });
 
-  const setLocalStorageState = (value) => {
-    setState((prevState) => {
+  const setLocalStorageState = value => {
+    setState(prevState => {
       const newState = typeof value === 'function' ? value(prevState) : value;
 
       localStorage.setItem(key, JSON.stringify(newState));

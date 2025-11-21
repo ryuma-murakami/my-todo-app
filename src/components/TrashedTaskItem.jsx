@@ -2,7 +2,7 @@ import { ArchiveRestore, Trash2 } from 'lucide-react';
 
 export function TrashedTaskItem({ task, onRestore, onDelete }) {
   return (
-    <div className="flex items-center justify-between gap-3 rounded bg-slate-200 px-4 py-2">
+    <div className="flex items-center justify-between rounded bg-slate-200 px-4 py-2">
       <p>{task.title}</p>
       <div className="flex items-center gap-2">
         <button

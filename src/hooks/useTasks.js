@@ -5,37 +5,31 @@ export function useTasks() {
 
   const activeTaskList = taskList.filter(({ status }) => status !== 'trashed');
 
-  const createTask = (title) => {
-    setTaskList((prevTaskList) => {
+  const createTask = title => {
+    setTaskList(prev => {
       const newTask = {
-        id: Date.now(),
+        id: crypto.randomUUID(),
         title,
         status: 'notStarted',
       };
-      return [...prevTaskList, newTask];
+      return [...prev, newTask];
     });
   };
 
-  const updateTask = (id, updatedTask) => {
-    setTaskList((prevTaskList) => {
-      return prevTaskList.map((task) =>
-        task.id === id ? { ...task, ...updatedTask } : task,
-      );
-    });
+  const updateTask = (id, update) => {
+    setTaskList(prev =>
+      prev.map(task => (task.id === id ? { ...task, ...update } : task)),
+    );
   };
 
   const trashedTaskList = taskList.filter(({ status }) => status === 'trashed');
 
-  const deleteTask = (id) => {
-    setTaskList((prevTaskList) => {
-      return prevTaskList.filter((task) => task.id !== id);
-    });
+  const deleteTask = id => {
+    setTaskList(prev => prev.filter(task => task.id !== id));
   };
 
   const deleteAllTrashedTasks = () => {
-    setTaskList((prevTaskList) => {
-      return prevTaskList.filter((task) => task.status !== 'trashed');
-    });
+    setTaskList(prev => prev.filter(task => task.status !== 'trashed'));
   };
 
   return {

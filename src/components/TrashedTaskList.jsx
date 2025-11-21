@@ -22,7 +22,7 @@ export function TrashedTaskList() {
         {trashedTaskList.length === 0 && (
           <p className="text-center text-sm">ゴミ箱にタスクはありません</p>
         )}
-        {trashedTaskList.map((task) => (
+        {trashedTaskList.map(task => (
           <TrashedTaskItem
             key={task.id}
             task={task}

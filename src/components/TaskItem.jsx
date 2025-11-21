@@ -17,9 +17,9 @@ export function TaskItem({ task, onChange }) {
           type="checkbox"
           className="size-5 cursor-pointer"
           checked={task.status === 'completed'}
-          onChange={(e) =>
+          onChange={event =>
             onChange(task.id, {
-              status: e.target.checked ? 'completed' : 'notStarted',
+              status: event.target.checked ? 'completed' : 'notStarted',
             })
           }
         />
@@ -29,15 +29,15 @@ export function TaskItem({ task, onChange }) {
         className={inputVariants({ completed: task.status === 'completed' })}
         defaultValue={task.title}
         disabled={task.status === 'completed'}
-        onKeyDown={(event) => {
+        onKeyDown={event => {
           if (event.nativeEvent.isComposing || event.key !== 'Enter') {
             return;
           }
           event.currentTarget.blur();
         }}
-        onBlur={(e) => {
+        onBlur={event => {
           onChange(task.id, {
-            title: e.target.value,
+            title: event.target.value,
           });
         }}
       />
