@@ -4,8 +4,8 @@ import { useRef } from 'react';
 export function CreateTaskForm({ onSubmit }) {
   const inputRef = useRef(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = event => {
+    event.preventDefault();
     if (!inputRef.current) {
       return;
     }
