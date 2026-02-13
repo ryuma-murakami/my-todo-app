@@ -10,7 +10,7 @@ export function CreateTaskForm({ onSubmit }) {
       return;
     }
 
-    const inputValue = inputRef.current?.value.trim();
+    const inputValue = inputRef.current.value.trim();
     if (!inputValue) {
       return;
     }
