@@ -28,7 +28,7 @@ export function AppLayout({ children }) {
   const { pathname } = useLocation();
   return (
     <div className="flex min-h-screen">
-      <div className="flex min-64 flex-col gap-5 p-6">
+      <div className="min-64 flex flex-col gap-5 p-6">
         <h1 className="text-3xl">Todo App</h1>
         <nav>
           <ul className="flex flex-col gap-2">
