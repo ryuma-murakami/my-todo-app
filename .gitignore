@@ -31,3 +31,6 @@ dist-ssr
 .eslintcache
 jest-cache/
 coverage/
+
+*storybook.log
+storybook-static
